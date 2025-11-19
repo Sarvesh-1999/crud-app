@@ -4,6 +4,8 @@ import AboutPage from "../pages/AboutPage";
 import ContactsPage from "../pages/ContactsPage";
 import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
+import CreateEmpPage from "../pages/CreateEmpPage";
+import AllEmpPage from "../pages/AllEmpPage";
 
 
 export const myRoutes = createBrowserRouter([
@@ -27,4 +29,12 @@ export const myRoutes = createBrowserRouter([
     path: "/signup",
     element: <SignupPage />,
   },
+  {
+    path:"/create-emp",
+    element:<CreateEmpPage/>
+  },
+  {
+    path:"/all-emp",
+    element:<AllEmpPage/>
+  }
 ]);
