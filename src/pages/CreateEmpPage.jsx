@@ -1,6 +1,41 @@
+import { useState } from "react";
+import axios from "axios";
 import Navbar from "../components/Navbar";
+import { api } from "../axios/axiosInstance";
+import toast from "react-hot-toast";
 
 const CreateEmpPage = () => {
+  const [empFormData, setEmpFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+    empId: "",
+    designation: "",
+    age: "",
+    dateOfJoining: "",
+  });
+
+  const handleChange = (e) => {
+    let { name, value } = e.target;
+    setEmpFormData({ ...empFormData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let payload = { ...empFormData };
+
+    try {
+      let res = await api.post("/employees", payload);
+      console.log(res);
+
+      if (res.status === 201) {
+        toast.success("Employee Registered ☑️");
+      }
+    } catch (err) {
+      toast.error("Registration Failed ❌");
+    }
+  };
+
   return (
     <div className=" bg-gray-50">
       <Navbar />
@@ -10,8 +45,7 @@ const CreateEmpPage = () => {
           New Employee Registration
         </h2>
 
-        <form className="space-y-5">
-
+        <form className="space-y-5" onSubmit={handleSubmit}>
           {/* Username */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -22,6 +56,9 @@ const CreateEmpPage = () => {
               className="w-full border border-gray-300 rounded-lg p-2 outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Enter username"
               required
+              value={empFormData.username}
+              name="username"
+              onChange={handleChange}
             />
           </div>
 
@@ -35,6 +72,9 @@ const CreateEmpPage = () => {
               className="w-full border border-gray-300 rounded-lg p-2 outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Enter email"
               required
+              value={empFormData.email}
+              name="email"
+              onChange={handleChange}
             />
           </div>
 
@@ -48,6 +88,9 @@ const CreateEmpPage = () => {
               className="w-full border border-gray-300 rounded-lg p-2 outline-none focus:ring-2 focus:ring-red-500"
               placeholder="Enter password"
               required
+              value={empFormData.password}
+              name="password"
+              onChange={handleChange}
             />
           </div>
 
@@ -61,6 +104,9 @@ const CreateEmpPage = () => {
               className="w-full border border-gray-300 rounded-lg p-2 outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="EMP12345"
               required
+              value={empFormData.empId}
+              name="empId"
+              onChange={handleChange}
             />
           </div>
 
@@ -74,6 +120,9 @@ const CreateEmpPage = () => {
               className="w-full border border-gray-300 rounded-lg p-2 outline-none focus:ring-2 focus:ring-yellow-500"
               placeholder="Manager / Developer / HR"
               required
+              value={empFormData.designation}
+              name="designation"
+              onChange={handleChange}
             />
           </div>
 
@@ -87,6 +136,9 @@ const CreateEmpPage = () => {
               className="w-full border border-gray-300 rounded-lg p-2 outline-none focus:ring-2 focus:ring-indigo-500"
               placeholder="Enter age"
               required
+              value={empFormData.age}
+              name="age"
+              onChange={handleChange}
             />
           </div>
 
@@ -99,6 +151,9 @@ const CreateEmpPage = () => {
               type="date"
               className="w-full border border-gray-300 rounded-lg p-2 outline-none focus:ring-2 focus:ring-teal-500"
               required
+              value={empFormData.dateOfJoining}
+              name="dateOfJoining"
+              onChange={handleChange}
             />
           </div>
 

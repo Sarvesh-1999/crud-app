@@ -1,3 +1,24 @@
 {
-    "employees"  : []
+  "employees": [
+    {
+      "id": "c881",
+      "username": "qwerty",
+      "email": "qwerty@gmail.com",
+      "password": "123456789",
+      "empId": "EMP12345",
+      "designation": "HR",
+      "age": "25",
+      "dateOfJoining": "2025-11-01"
+    },
+    {
+      "id": "44d9",
+      "username": "User1",
+      "email": "user@gmail.com",
+      "password": "123",
+      "empId": "EMP9901",
+      "designation": "Manager",
+      "age": "50",
+      "dateOfJoining": "2025-11-08"
+    }
+  ]
 }
