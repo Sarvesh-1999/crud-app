@@ -50,44 +50,60 @@ const LoginPage = () => {
     setFormData({ email: "", password: "" });
   };
   return (
-     <div>
-      <Navbar />
-      <section className="flex items-center justify-center h-[80vh]">
-        <form
-          onSubmit={handleSubmit}
-          className="shadow-lg border border-gray-200 flex flex-col p-8 rounded-lg gap-5"
-        >
-          <h1 className="text-center text-3xl font-semibold mb-5">Login</h1>
-          <input
-            type="email"
-            name="email"
-            className="border border-gray-500 rounded p-3 w-2xs"
-            id="email"
-            placeholder="Enter Email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-          <input
-            type="password"
-            name="password"
-            className="border border-gray-500 rounded p-3 w-2xs"
-            id="password"
-            placeholder="Enter password"
-            value={formData.password}
-            onChange={handleChange}
-          />
-          <p className="text-center font-semibold">
-            Don't have an account?{" "}
-            <Link to="/signup" className="text-blue-700 underline">
-              Signup
-            </Link>
-          </p>
-          <button className="cursor-pointer py-2 rounded bg-blue-600 text-white hover:bg-blue-800">
-            Login
-          </button>
-        </form>
-      </section>
-    </div>
+   <div>
+  <Navbar />
+
+  <section className="flex items-center justify-center min-h-[85vh] bg-gray-50 px-4">
+    <form
+      onSubmit={handleSubmit}
+      className="w-full max-w-sm bg-white shadow-xl rounded-2xl px-8 py-10 border border-gray-200"
+    >
+      <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
+        Login
+      </h1>
+
+      {/* Email */}
+      <label className="block text-gray-700 font-semibold mb-1">Email</label>
+      <input
+        type="email"
+        name="email"
+        className="w-full border border-gray-300 rounded-lg p-3 mb-5 focus:ring-2 focus:ring-blue-500 outline-none"
+        placeholder="Enter Email"
+        value={formData.email}
+        onChange={handleChange}
+      />
+
+      {/* Password */}
+      <label className="block text-gray-700 font-semibold mb-1">
+        Password
+      </label>
+      <input
+        type="password"
+        name="password"
+        className="w-full border border-gray-300 rounded-lg p-3 mb-4 focus:ring-2 focus:ring-blue-500 outline-none"
+        placeholder="Enter Password"
+        value={formData.password}
+        onChange={handleChange}
+      />
+
+      {/* Sign up link */}
+      <p className="text-center text-gray-600 text-sm mb-4">
+        Don’t have an account?{" "}
+        <Link to="/signup" className="text-blue-600 font-semibold hover:underline">
+          Signup
+        </Link>
+      </p>
+
+      {/* Submit Button */}
+      <button
+        className="w-full py-3 rounded-lg bg-blue-600 text-white text-lg font-semibold hover:bg-blue-700 transition-all"
+      >
+        Login
+      </button>
+    </form>
+  </section>
+</div>
+
   )
 }
 
