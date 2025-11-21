@@ -53,20 +53,6 @@ const Navbar = () => {
       <div className="font-medium flex items-center gap-4">
         {token ? (
           <>
-            {/* Create Employee */}
-            <Link to="/create-emp">
-              <button className="px-4 py-1.5 rounded-lg text-blue-600 border border-blue-600 hover:bg-blue-50 transition">
-                Create Employee
-              </button>
-            </Link>
-
-            {/* All Employees */}
-            <Link to="/all-emp">
-              <button className="px-4 py-1.5 rounded-lg text-green-600 border border-green-600 hover:bg-green-50 transition">
-                All Employees
-              </button>
-            </Link>
-
             {/* Logout */}
             <button
               onClick={handleLogout}

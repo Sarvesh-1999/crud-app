@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -17,19 +18,19 @@ const HomePage = () => {
         </p>
 
         <div className="mt-8 flex gap-4">
-          <a
-            href="/"
+          <Link
+            to="/create-emp"
             className="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-blue-700 transition"
           >
             Add New Employee
-          </a>
+          </Link>
 
-          <a
-            href="/"
+          <Link
+            to="/all-emp"
             className="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg text-lg font-medium hover:bg-blue-50 transition"
           >
             View Employees
-          </a>
+          </Link>
         </div>
       </section>
 
