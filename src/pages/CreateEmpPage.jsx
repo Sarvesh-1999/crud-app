@@ -3,6 +3,7 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import { api } from "../axios/axiosInstance";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const CreateEmpPage = () => {
   const [empFormData, setEmpFormData] = useState({
@@ -15,6 +16,8 @@ const CreateEmpPage = () => {
     dateOfJoining: "",
   });
 
+  const navigate = useNavigate()
+
   const handleChange = (e) => {
     let { name, value } = e.target;
     setEmpFormData({ ...empFormData, [name]: value });
@@ -26,10 +29,11 @@ const CreateEmpPage = () => {
 
     try {
       let res = await api.post("/employees", payload);
-      console.log(res);
+      // console.log(res);
 
       if (res.status === 201) {
         toast.success("Employee Registered ☑️");
+        navigate("/all-emp")
       }
     } catch (err) {
       toast.error("Registration Failed ❌");

@@ -6,7 +6,8 @@ import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
 import CreateEmpPage from "../pages/CreateEmpPage";
 import AllEmpPage from "../pages/AllEmpPage";
-
+import PrivateRoute from "../privateRoute/PrivateRoute";
+import EditEmpPage from "../pages/EditEmpPage";
 
 export const myRoutes = createBrowserRouter([
   {
@@ -30,11 +31,23 @@ export const myRoutes = createBrowserRouter([
     element: <SignupPage />,
   },
   {
-    path:"/create-emp",
-    element:<CreateEmpPage/>
+    path: "/create-emp",
+    element: (
+      <PrivateRoute>
+        <CreateEmpPage />
+      </PrivateRoute>
+    ),
   },
   {
-    path:"/all-emp",
-    element:<AllEmpPage/>
-  }
+    path: "/all-emp",
+    element: (
+      <PrivateRoute>
+        <AllEmpPage />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/edit-emp/:id", // dynamic route
+    element: <EditEmpPage />,
+  },
 ]);
